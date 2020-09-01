@@ -66,7 +66,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="password" class="form-control" name="phone" required autocomplete="">
+                                <input id="phone" type="number" class="form-control" name="phone" required autocomplete="">
                             </div>
 
                             @error('phone')
@@ -77,7 +77,8 @@
                         </div>
 
                         {{-- role --}}
-                        <div class="from-group row" style="margin-bottom: 15px;">
+                        {{--
+                         <div class="from-group row" style="margin-bottom: 15px;">
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Select Role') }}</label>
 
                             <div class="col-md-6 dropdown">
@@ -92,6 +93,7 @@
                               <hr>
 
                         </div>
+                         --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
