@@ -45,7 +45,7 @@
         <div class="footer">
             <a href="#"> read full report</a>
         </div>
-    </div> --}}
+    </div> 
 
 </div>
 

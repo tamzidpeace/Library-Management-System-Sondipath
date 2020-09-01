@@ -24,6 +24,9 @@
     <link href="{{asset('dashboard/css/bootstrap-responsive.min.css')}}" rel="stylesheet">
     <link id="base-style" href="{{asset('dashboard/css/style.css')}}" rel="stylesheet">
     <link id="base-style-responsive" href="{{asset('dashboard/css/style-responsive.css')}}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     <link
         href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext'
         rel='stylesheet' type='text/css'>
@@ -351,7 +354,11 @@
             <div id="sidebar-left" class="span2">
                 <div class="nav-collapse sidebar-nav">
                     <ul class="nav nav-tabs nav-stacked main-menu">
-                        <li><a href="/admin/users"><i class="icon-user"></i><span class="hidden-tablet">
+
+                        <li><a href="{{ route('dashboard') }}"><i class="icon-user"></i><span class="hidden-tablet">
+                            Dashboard</span></a></li>
+
+                        <li><a href="{{ route('admin.users') }}"><i class="icon-user"></i><span class="hidden-tablet">
                                     Users</span></a></li>
 
 
