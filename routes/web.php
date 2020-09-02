@@ -33,7 +33,10 @@ Route::get('/admin/users/delete-user/{id}', 'Admincontroller@deleteUser')->name(
 Route::post('/admin/users/delete-user-confirm', 'AdminController@deleteUserConfirm')->name('admin.delete-user-confirm');
 
 //category route
-
 Route::get('/admin/category/index', 'AdminCategoryController@index')->name('admin.category.index');
 Route::get('/admin/category/add', 'AdminCategoryController@add')->name('admin.category.add');
 Route::post('/admin/category/save', 'AdminCategoryController@save')->name('admin.category.save');
+Route::get('/admin/category/edit/{id}', 'AdminCategoryController@edit')->name('admin.category.edit');
+Route::post('/admin/category/edit-confirm', 'AdminCategoryController@editConfirm')->name('admin.category.edit-confirm');
+Route::get('/admin/category/delete/{id}', 'AdminCategoryController@delete')->name('admin.category.delete');
+Route::post('/admin/category/delete-confirm', 'AdminCategoryController@deleteConfirm')->name('admin.category.delete');

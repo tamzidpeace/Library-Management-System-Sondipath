@@ -32,13 +32,13 @@
         <td> {{$cat->updated_at}} </td>
 
         <td>
-            <a href="/admin/users/edit-user/">
+            <a href="/admin/category/edit/{{ $cat->id }}">
                 <button class="btn btn-primary">
                     Edit
                 </button>
             </a>
 
-            <a href="/admin/users/delete-user/">
+            <a href="/admin/category/delete/{{ $cat->id }}">
                 <button class="btn btn-danger">
                     Delete
                 </button>

@@ -25,4 +25,32 @@ class AdminCategoryController extends Controller
 
         return redirect(route('admin.category.index'))->with('success', "New Category Added");
     }
+
+    public function edit($id) {
+        $category = Category::findOrFail($id);
+        return view('admin.category.edit', compact('id', 'category'));
+    }
+
+    public function editConfirm(Request $request) {
+        $category = Category::findOrFail($request->id);
+
+        $category->name = $request->name;
+        $category->status = $request->status;
+
+        $category->save();
+
+        return redirect(route('admin.category.index'))->with('info', 'category info updated');
+    }
+
+    public function delete($id) {
+        $category = Category::findOrFail($id);
+        return view('admin.category.delete', compact('id', 'category'));
+    }
+
+    public function deleteConfirm(Request $request) {
+        $category = Category::findOrFail($request->id);
+        $category->delete();
+
+        return redirect(route('admin.category.index'))->with('info', 'category removed');
+    }
 }
