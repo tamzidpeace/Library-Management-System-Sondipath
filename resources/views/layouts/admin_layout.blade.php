@@ -364,12 +364,13 @@
 
                         <li>
                             <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
-                                    class="hidden-tablet">Teacher</span></a>
+                                    class="hidden-tablet">Category</span></a>
                             <ul>
-                                <li><a href="/admin/teachers"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Teachers Info</span></a></li>
-                                <li><a class="submenu" href="/admin/teacher/add-new"><i class="icon-file-alt"></i><span
-                                            class="hidden-tablet">Add New Teacher</span></a></li>
+                                <li><a class="submenu" href="{{ route('admin.category.add') }}"><i class="icon-file-alt"></i><span
+                                    class="hidden-tablet">Add Category</span></a></li>
+
+                                <li><a href="{{ route('admin.category.index') }}"><i class="icon-book"></i><span class="hidden-tablet">
+                                            Manage Category</span></a></li>
                             </ul>
                         </li>
 

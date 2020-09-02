@@ -1,7 +1,3 @@
-@extends('layouts.admin_layout')
-
-
-@section('content')
 
 @extends('layouts.admin_layout')
 
@@ -34,10 +30,10 @@ Are you sure to remove {{ $user->name }}
     <button class="btn btn-info"  style="margin-left: 160px; margin-top: -96px;"> NO </button>
 </a>
 
-
-
-
-@endsection
-
+<script>
+    $(".delete").on("submit", function(){
+        return confirm("Are you sure?");
+    });
+</script>
 
 @endsection
