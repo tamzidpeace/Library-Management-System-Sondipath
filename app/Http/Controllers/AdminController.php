@@ -15,4 +15,35 @@ class AdminController extends Controller
         $users = User::all();
         return view('admin.users.users', compact('users'));
     }
+
+    public function editUser($id) {
+        $user = User::find($id);
+        return view('admin.users.edit_user', compact('id', 'user'));
+    }
+
+    public function editUserConfirm(Request $request) {
+        $user = User::find($request->id);
+
+        $user->name = $request->name;
+        $user->role = $request->role;
+
+        $user->save();
+
+        return redirect(route('admin.users'))->with('success', 'User info updated');
+
+    }
+
+    public function deleteUser($id) {
+        $user = User::find($id);
+
+        return view('admin.users.delete_user', compact('user', 'id'));
+    }
+
+    public function deleteUserConfirm(Request $request) {
+        $user = User::find($request->id);
+
+        $user->delete();
+
+        return redirect(route('admin.users'))->with('info', 'User Removed');
+    }
 }

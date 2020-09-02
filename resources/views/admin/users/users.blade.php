@@ -25,11 +25,18 @@
         <td> {{$user->phone}} </td>
         <td> {{$user->role}} </td>
         <td>
-            <a href="#">
+            <a href="/admin/users/edit-user/{{  $user->id }}">
                 <button class="btn btn-primary">
                     Edit
                 </button>
             </a>
+
+            <a href="/admin/users/delete-user/{{ $user->id }}">
+                <button class="btn btn-danger">
+                    Delete
+                </button>
+            </a>
+
         </td>
     </tr>
     @endforeach
