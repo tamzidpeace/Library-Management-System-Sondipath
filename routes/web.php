@@ -32,7 +32,7 @@ Route::post('/admin/users/edit-user-confirm', 'AdminController@editUserConfirm')
 Route::get('/admin/users/delete-user/{id}', 'Admincontroller@deleteUser')->name('admin.delete-user');
 Route::post('/admin/users/delete-user-confirm', 'AdminController@deleteUserConfirm')->name('admin.delete-user-confirm');
 
-//category route
+//category routes
 Route::get('/admin/category/index', 'AdminCategoryController@index')->name('admin.category.index');
 Route::get('/admin/category/add', 'AdminCategoryController@add')->name('admin.category.add');
 Route::post('/admin/category/save', 'AdminCategoryController@save')->name('admin.category.save');
@@ -40,3 +40,12 @@ Route::get('/admin/category/edit/{id}', 'AdminCategoryController@edit')->name('a
 Route::post('/admin/category/edit-confirm', 'AdminCategoryController@editConfirm')->name('admin.category.edit-confirm');
 Route::get('/admin/category/delete/{id}', 'AdminCategoryController@delete')->name('admin.category.delete');
 Route::post('/admin/category/delete-confirm', 'AdminCategoryController@deleteConfirm')->name('admin.category.delete');
+
+//author routes
+Route::get('/admin/author/index', 'AdminAuthorController@index')->name('admin.author.index');
+Route::get('/admin/author/add', 'AdminAuthorController@add')->name('admin.author.add');
+Route::post('/admin/author/save', 'AdminAuthorController@save')->name('admin.author.save');
+Route::get('/admin/author/edit/{id}', 'AdminAuthorController@edit')->name('admin.author.edit');
+Route::post('admin/author/edit-confirm', 'AdminAuthorController@editConfirm')->name('admin.author.edit-confirm');
+Route::get('/admin/author/delete/{id}', 'AdminAuthorController@delete')->name('admin.author.delete');
+Route::post('/admin/author/delete-confirm', 'AdminAuthorController@deleteConfirm')->name('admin.author.delete-confirm');

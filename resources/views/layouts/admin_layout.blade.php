@@ -361,7 +361,7 @@
                         <li><a href="{{ route('admin.users') }}"><i class="icon-user"></i><span class="hidden-tablet">
                                     Users</span></a></li>
 
-
+                        {{-- category --}}
                         <li>
                             <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
                                     class="hidden-tablet">Category</span></a>
@@ -374,24 +374,24 @@
                             </ul>
                         </li>
 
-                        {{-- students --}}
+                        {{-- end of category --}}
+
+                        {{-- Author --}}
 
                         <li>
                             <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
-                                    class="hidden-tablet">Students</span></a>
+                                    class="hidden-tablet">Author</span></a>
                             <ul>
-                                <li><a href="/admin/select-class"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Add New Student</span></a></li>
+                                <li><a href="/admin/author/add"><i class="icon-book"></i><span class="hidden-tablet">
+                                            Add New Author</span></a></li>
 
-                                <li><a href="/admin/excel-import"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Excel Import</span></a></li>
+                                <li><a href="/admin/author/index"><i class="icon-book"></i><span class="hidden-tablet">
+                                            Manage Author</span></a></li>
 
-                                <li><a class="submenu" href="/admin/student-info"><i class="icon-file-alt"></i><span
-                                            class="hidden-tablet">Students Info</span></a></li>
                             </ul>
                         </li>
 
-                        {{-- end of students --}}
+                        {{-- end of author --}}
 
                         {{-- Accountants --}}
 
