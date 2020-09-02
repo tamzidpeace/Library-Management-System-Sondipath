@@ -393,129 +393,24 @@
 
                         {{-- end of author --}}
 
-                        {{-- Accountants --}}
+                        {{-- Books --}}
 
                         <li>
                             <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
-                                    class="hidden-tablet">Accountant</span></a>
-                            <ul>
-                                <li><a href="/admin/user/accountants"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Accountants</span></a></li>
+                                    class="hidden-tablet">Book</span></a>
 
-                                <li><a href="#"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Add Accountant</span></a></li>
+                            <ul>
+                                <li><a href="/admin/book/add"><i class="icon-book"></i><span class="hidden-tablet">
+                                    Add New Book</span></a></li>
+
+                                <li><a href="/admin/book/index"><i class="icon-book"></i><span class="hidden-tablet">
+                                            Manage Book</span></a></li>
 
                             </ul>
                         </li>
 
-                        {{-- end of Accountants --}}
+                        {{-- end of Books --}}
 
-                        {{-- Staff --}}
-
-                        <li>
-                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
-                                    class="hidden-tablet">Staff</span></a>
-                            <ul>
-                                <li><a href="/admin/user/staffs"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Staffs</span></a></li>
-                            </ul>
-
-                            <ul>
-                                <li><a href="/admin/user/staff/add"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Add Staff</span></a></li>
-                            </ul>
-                        </li>
-
-                        {{-- end of staffs --}}
-
-                        </li>
-
-                        {{-- class & section --}}
-                        <li>
-                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
-                                    class="hidden-tablet">Class & Section</span></a>
-                            <ul>
-                                <li><a href="/admin/class"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Class</span></a></li>
-                                <li><a class="submenu" href="/admin/section"><i class="icon-file-alt"></i><span
-                                            class="hidden-tablet">Section</span></a></li>
-                                <li><a class="submenu" href="/admin/subjects"><i class="icon-file-alt"></i><span
-                                            class="hidden-tablet">Subject</span></a></li>
-                                <li><a class="submenu" href="/admin/class/section/class-routine"><i
-                                            class="icon-file-alt"></i><span class="hidden-tablet">Class
-                                            Routine</span></a></li>
-                                <li><a class="submenu" href="/admin/class/syllabus"><i class="icon-file-alt"></i><span
-                                            class="hidden-tablet">Syllabus</span></a></li>
-                            </ul>
-                        </li>
-                        {{-- end of class and section --}}
-
-                        {{-- Assign Teacher --}}
-                        <li>
-                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
-                                    class="hidden-tablet">Assign Teacher</span></a>
-                            <ul>
-                                <li><a href="/admin/assign-teacher/section"><i class="icon-book"></i><span
-                                            class="hidden-tablet">
-                                            For Section</span></a></li>
-                                <li><a href="/admin/assign-teacher/subject"><i class="icon-book"></i><span
-                                            class="hidden-tablet">
-                                            For Subject</span></a></li>
-                            </ul>
-                        </li>
-                        {{-- end of assign teacher --}}
-
-                        {{-- School Information --}}
-
-                        <li>
-                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
-                                    class="hidden-tablet">School</span></a>
-                            <ul>
-                                <li><a href="/admin/school/info"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Information</span></a></li>
-
-
-                            </ul>
-                        </li>
-
-                        {{-- end School Information --}}
-
-                        {{-- send email --}}
-
-                        <li><a href="/admin/mail"><i class="icon-book"></i><span class="hidden-tablet">
-                                    Send Email</span></a></li>
-
-                        {{-- end of send email --}}
-
-                        {{-- notice --}}
-
-                        <li>
-                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
-                                    class="hidden-tablet">Notice</span></a>
-                            <ul>
-                                <li><a href="/admin/notice"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Notices</span></a></li>
-
-
-                            </ul>
-                        </li>
-
-                        {{-- end of notice --}}
-
-                        {{-- notice --}}
-
-                        <li>
-                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
-                                    class="hidden-tablet">Promotion</span></a>
-                            <ul>
-                                <li><a href="/admin/session"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Session</span></a></li>
-
-
-                            </ul>
-                        </li>
-
-                        {{-- end of notice --}}
 
 
                         <li>
@@ -531,24 +426,7 @@
                                             class="hidden-tablet"> Sub Menu 3</span></a></li>
                             </ul>
                         </li>
-                        <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a>
-                        </li>
-                        <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet">
-                                    Charts</span></a></li>
-                        <li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet">
-                                    Typography</span></a></li>
-                        <li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet">
-                                    Gallery</span></a></li>
-                        <li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet">
-                                    Tables</span></a></li>
-                        <li><a href="calendar.html"><i class="icon-calendar"></i><span class="hidden-tablet">
-                                    Calendar</span></a></li>
-                        <li><a href="file-manager.html"><i class="icon-folder-open"></i><span class="hidden-tablet">
-                                    File Manager</span></a></li>
-                        <li><a href="icon.html"><i class="icon-star"></i><span class="hidden-tablet"> Icons</span></a>
-                        </li>
-                        <li><a href="login.html"><i class="icon-lock"></i><span class="hidden-tablet"> Login
-                                    Page</span></a></li>
+                        
                     </ul>
                 </div>
             </div>

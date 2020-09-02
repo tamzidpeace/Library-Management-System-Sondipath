@@ -49,3 +49,8 @@ Route::get('/admin/author/edit/{id}', 'AdminAuthorController@edit')->name('admin
 Route::post('admin/author/edit-confirm', 'AdminAuthorController@editConfirm')->name('admin.author.edit-confirm');
 Route::get('/admin/author/delete/{id}', 'AdminAuthorController@delete')->name('admin.author.delete');
 Route::post('/admin/author/delete-confirm', 'AdminAuthorController@deleteConfirm')->name('admin.author.delete-confirm');
+
+
+//book routes
+Route::get('/admin/book/index', 'AdminBookController@index')->name('admin.book.index');
+Route::get('/admin/book/add', 'AdminBookController@add')->name('admin.book.add');
