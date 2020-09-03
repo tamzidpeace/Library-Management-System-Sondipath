@@ -63,4 +63,21 @@ class AdminBookController extends Controller
 
         return back()->with('success', 'New Book Added');
     }
+
+    public function delete($id)
+    {
+        $book = Book::findOrFail($id);
+        return view('admin.book.delete', compact('book', 'id'));
+    }
+
+    public function deleteConfirm(Request $request)
+    {
+        $book = Book::findOrFail($request->id);
+        if (isset($book->cover)) {
+            $file = $book->cover;
+            unlink('image/cover/' . $file);
+        }
+        $book->delete();
+        return redirect(route('admin.book.index'))->with('info', 'Book Deleted!');
+    }
 }
