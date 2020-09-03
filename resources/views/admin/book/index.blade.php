@@ -2,14 +2,18 @@
 
 
 @section('content')
+{{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
 
 <h2>Books</h2>
 <table class="table table-bordered">
     <tr class="info">
         <th>#</th>
-        <th>Name</th>
-        <th>Creation Date</th>
-        <th>Updation Date</th>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Edition</th>
+        <th>Purchase Price</th>
+        <th>Selling Price</th>
+        <th>Copy Available</th>
         <th>Action</th>
     </tr>
 
@@ -20,9 +24,12 @@
     @foreach ($books as $book)
     <tr>
         <td> {{$count++}} </td>
-        <td> {{$book->name}} </td>
-        <td> {{$book->created_at}} </td>
-        <td> {{$book->updated_at}} </td>
+        <td> <a href="{{ route('admin.book.index') }}" style="color:blue" > <u>{{$book->name}}</u> </a> </td>
+        <td> {{$book->isbn}} </td>
+        <td> {{ $book->edition }}</td>
+        <td> {{$book->purchase_price}} </td>
+        <td> {{$book->selling_price}} </td>
+        <td> {{$book->amount}} </td>
 
         <td>
             <a href="/admin/book/edit/{{ $book->id }}">
@@ -41,7 +48,9 @@
     </tr>
     @endforeach
 
+
 </table>
 
+{{ $books->links() }}
 
 @endsection

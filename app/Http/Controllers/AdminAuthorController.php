@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AdminAuthorController extends Controller
 {
     public function index() {
-        $authors = Author::all();
+        $authors = Author::paginate(10);
         return view('admin.author.index', compact('authors'));
     }
 
@@ -20,6 +20,11 @@ class AdminAuthorController extends Controller
         $author = new Author;
 
         $author->name = $request->name;
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+        ]);
+
         $author->save();
 
         return redirect(route('admin.author.index'))->with('success', 'New Author Added!');

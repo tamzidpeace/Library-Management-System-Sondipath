@@ -50,4 +50,6 @@
 
 </table>
 
+{{ $categories->links() }}
+
 @endsection

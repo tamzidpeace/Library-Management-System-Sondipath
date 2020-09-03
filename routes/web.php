@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //admin
@@ -57,4 +59,5 @@ Route::post('/admin/author/delete-confirm', 'AdminAuthorController@deleteConfirm
 
 //book routes
 Route::get('/admin/book/index', 'AdminBookController@index')->name('admin.book.index');
-Route::get('/admin/book/add', 'AdminBookController@add')->name('admin.book.add');
+Route::get('/admin/book/create', 'AdminBookController@create')->name('admin.book.create');
+Route::post('/admin/book/save', 'AdminBookController@save')->name('admin.book.save');

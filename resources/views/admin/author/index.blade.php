@@ -43,5 +43,7 @@
 
 </table>
 
+{{ $authors->links() }}
+
 
 @endsection

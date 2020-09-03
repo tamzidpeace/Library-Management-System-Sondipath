@@ -19,6 +19,7 @@
     <!-- end: Mobile Specific -->
 
     <!-- start: CSS -->
+    {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
     <link id="bootstrap-style" href="{{asset('dashboard/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('dashboard/css/bootstrap-responsive.min.css')}}" rel="stylesheet">
@@ -37,6 +38,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {{--  <script src="{{ asset('js/app.js') }}" defer></script>  --}}
 
     <!-- end: CSS -->
 
@@ -325,7 +327,10 @@
                         <!-- start: User Dropdown -->
                         <li class="dropdown">
                             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="halflings-icon white user"></i> Admin
+                                @php
+                                $user = auth()->user()->name;
+                                @endphp
+                                <i class="halflings-icon white user"></i> {{ $user }}
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -337,6 +342,7 @@
                             </ul>
                         </li>
                         <!-- end: User Dropdown -->
+                        <li><a href="/logout" class="btn btn-danger">Logout</a></li>
                     </ul>
                 </div>
                 <!-- end: Header Menu -->
@@ -400,7 +406,7 @@
                                     class="hidden-tablet">Book</span></a>
 
                             <ul>
-                                <li><a href="/admin/book/add"><i class="icon-book"></i><span class="hidden-tablet">
+                                <li><a href="{{ route('admin.book.create') }}"><i class="icon-book"></i><span class="hidden-tablet">
                                     Add New Book</span></a></li>
 
                                 <li><a href="/admin/book/index"><i class="icon-book"></i><span class="hidden-tablet">
@@ -426,7 +432,7 @@
                                             class="hidden-tablet"> Sub Menu 3</span></a></li>
                             </ul>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>

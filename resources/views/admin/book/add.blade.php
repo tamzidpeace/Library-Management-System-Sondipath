@@ -2,15 +2,12 @@
 
 @section('content')
 
-
-
-
 <div >
 
 
-{!! Form::open(['method' => 'POST', 'action' => ['AdminCategoryController@save'], 'files'=> true] ) !!}
+{!! Form::open(['method' => 'POST', 'action' => ['AdminBookController@save'], 'files'=> true] ) !!}
 
-<h2>Add New Books</h2>
+<h2>Add New Books</h2> <br>
 
 <div class="form-group">
     <label for="name"><strong>Title</strong>
@@ -23,7 +20,7 @@
 </div>
 
 <div class="form-group">
-    <label for="name">ISBN
+    <label for="name"><strong>ISBN</strong>
         <span style="color:red;">*</span>
     </label>
 
@@ -31,23 +28,16 @@
 </div>
 
 <div class="form-group">
-    <label for="name">Purchase Price
+    <label for="name"> <strong>Purchase Price</strong>
         <span style="color:red;">*</span>
     </label>
 
     <input type="number" name="pprice" id="pprice" placeholder="Enter Purchase Price" value="" >
 </div>
 
-<div class="form-group">
-    <label for="name">Purchase Price
-        <span style="color:red;">*</span>
-    </label>
-
-    <input type="number" name="pprice" id="pprice" placeholder="Enter Purchase Price" value="" >
-</div>
 
 <div class="form-group">
-    <label for="name">Selling Price
+    <label for="name"><strong>Selling Price</strong>
         <span style="color:red;">*</span>
     </label>
 
@@ -55,7 +45,7 @@
 </div>
 
 <div class="form-group">
-    <label for="name">Year
+    <label for="name"><strong>Year</strong>
         <span style="color:red;">*</span>
     </label>
 
@@ -63,7 +53,7 @@
 </div>
 
 <div class="form-group">
-    <label for="name">Country
+    <label for="name"><strong>Country</strong>
         <span style="color:red;">*</span>
     </label>
 
@@ -71,7 +61,7 @@
 </div>
 
 <div class="form-group">
-    <label for="name">Publisher
+    <label for="name"><strong>Publisher</strong>
         <span style="color:red;">*</span>
     </label>
 
@@ -79,7 +69,15 @@
 </div>
 
 <div class="form-group">
-    <label for="name">Language
+    <label for="name"><strong>Copyright</strong>
+        <span style="color:red;">*</span>
+    </label>
+
+    <input type="text" name="copyright" id="copyright" placeholder="Copyright" value="" >
+</div>
+
+<div class="form-group">
+    <label for="name"><strong>Language</strong>
         <span style="color:red;">*</span>
     </label>
 
@@ -87,7 +85,7 @@
 </div>
 
 <div class="form-group">
-    <label for="name">Total Number of Available Copy
+    <label for="name"><strong>Total Number of Available Copy</strong>
 
     </label>
 
@@ -95,15 +93,15 @@
 </div>
 
 <div class="form-group">
-    <label for="name">Edition
+    <label for="name"><strong>Edition</strong>
 
     </label>
 
-    <input type="number" name="edition" id="edition" placeholder="Ex: 5th" value="" >
+    <input type="text" name="edition" id="edition" placeholder="Ex: 5th" value="" >
 </div>
 
 <div class="form-group">
-    <label for="name">Cover Image
+    <label for="name"><strong>Cover Image</strong>
 
     </label>
 
@@ -111,16 +109,16 @@
 </div>
 
 <div class="form-group">
-    <label for="name">Authors
-
+    <label for="name"><strong>Authors</strong>
+        <span style="color:red;">*</span>
     </label>
 
-    <input type="textarea" name="author" id="author" placeholder="" value="" >
+    <textarea class="form-control" id="author" name="author" rows="3"></textarea>
 </div>
 
 <div class="form-group">
-    <label for="name">Categories
-
+    <label for="name"><strong>Category</strong>
+        <span style="color:red;">*</span>
     </label>
 
     <textarea class="form-control" id="category" name="category" rows="3"></textarea>

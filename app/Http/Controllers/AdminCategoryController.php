@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AdminCategoryController extends Controller
 {
     public function index() {
-        $categories = Category::all();
+        $categories = Category::paginate(10);
         return view('admin.category.manage', compact('categories'));
     }
 
@@ -20,6 +20,10 @@ class AdminCategoryController extends Controller
         $category = new Category;
 
         $category->name = $request->name;
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+        ]);
 
         $category->save();
 

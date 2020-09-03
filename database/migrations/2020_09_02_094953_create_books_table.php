@@ -22,7 +22,7 @@ class CreateBooksTable extends Migration
             $table->integer('selling_price');
             $table->string('copyright');
             $table->integer('year');
-            $table->integer('country');
+            $table->string('country');
             $table->text('category');
             $table->string('publisher');
             $table->string('language');

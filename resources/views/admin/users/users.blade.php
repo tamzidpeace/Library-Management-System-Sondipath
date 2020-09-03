@@ -43,4 +43,6 @@
 
 </table>
 
+{{ $users->links() }}
+
 @endsection
