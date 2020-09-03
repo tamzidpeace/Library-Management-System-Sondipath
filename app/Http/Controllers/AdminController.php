@@ -2,13 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
+use App\Book;
+use App\Category;
 use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function login() {
-        return view('admin.dashboard');
+
+        $books = Book::all();
+        $authors = Author::all();
+        $categories = Category::all();
+
+        $total_book = count($books);
+        $total_author = count($authors);
+        $total_category = count($categories);
+
+
+        return view('admin.dashboard', compact('total_book', 'total_author', 'total_category'));
     }
 
     public function users() {
