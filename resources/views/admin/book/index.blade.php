@@ -24,7 +24,7 @@
     @foreach ($books as $book)
     <tr>
         <td> {{$count++}} </td>
-        <td> <a href="{{ route('admin.book.index') }}" style="color:blue" > <u>{{$book->name}}</u> </a> </td>
+        <td> <a href="/admin/book/info/{{ $book->id }}" style="col }}or:blue" > <u>{{$book->name}}</u> </a> </td>
         <td> {{$book->isbn}} </td>
         <td> {{ $book->edition }}</td>
         <td> {{$book->purchase_price}} </td>

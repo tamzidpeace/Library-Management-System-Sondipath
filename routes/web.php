@@ -65,4 +65,5 @@ Route::get('/admin/book/edit/{id}', 'AdminBookController@edit')->name('admin.boo
 Route::post('/admin/book/edit-confirm', 'AdminBookController@editConfirm')->name('admin.book.edit-confirm');
 Route::get('/admin/book/delete/{id}', 'AdminBookController@delete')->name('amdin.book.delete');
 Route::post('/admin/book/delete-confirm', 'AdminBookController@deleteConfirm')->name('amdin.book.delete-confirm');
+Route::get('/admin/book/info/{id}', 'AdminBookController@info')->name('admin.book.info');
 

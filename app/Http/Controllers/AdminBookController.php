@@ -136,4 +136,9 @@ class AdminBookController extends Controller
         $book->delete();
         return redirect(route('admin.book.index'))->with('info', 'Book Deleted!');
     }
+
+    function info($id) {
+        $book = Book::findOrFail($id);
+        return view('admin.book.info', compact('book', 'id'));
+    }
 }
