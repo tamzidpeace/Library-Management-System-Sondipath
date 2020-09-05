@@ -66,6 +66,7 @@ Route::post('/admin/book/edit-confirm', 'AdminBookController@editConfirm')->name
 Route::get('/admin/book/delete/{id}', 'AdminBookController@delete')->name('amdin.book.delete');
 Route::post('/admin/book/delete-confirm', 'AdminBookController@deleteConfirm')->name('amdin.book.delete-confirm');
 Route::get('/admin/book/info/{id}', 'AdminBookController@info')->name('admin.book.info');
+Route::get('/admin/book/search', 'AdminBookController@search')->name('admin.book.search');
 
 //consignment item
 Route::get('/admin/book/consignment', 'ConsignmentController@index')->name('admin.book.consignment');

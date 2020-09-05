@@ -17,9 +17,7 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('authors');
-            $table->integer('isbn')->unique();;
-            $table->integer('purchase_price');
-            $table->integer('selling_price');
+            $table->integer('isbn')->unique();;            
             $table->string('copyright');
             $table->integer('year');
             $table->string('country');

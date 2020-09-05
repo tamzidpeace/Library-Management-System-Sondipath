@@ -136,4 +136,14 @@ class AdminBookController extends Controller
         $book = Book::findOrFail($id);
         return view('admin.book.info', compact('book', 'id'));
     }
+
+    function search(Request $request) {
+        $book = Book::where('isbn', $request->isbn)->orWhere('name', $request->isbn)->first();
+
+        if($book) {
+            return view('admin.book.info', compact('book'));
+        } else {
+            return back()->with('info', 'Sorry, There is no book of this ISBN');
+        }
+    }
 }

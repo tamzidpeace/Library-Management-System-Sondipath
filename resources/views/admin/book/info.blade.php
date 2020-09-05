@@ -30,15 +30,13 @@
         <div class="span4">
             <p><strong>Authors:</strong> {{ $book->authors }}</p>
             <p><strong>ISBN:</strong> {{ $book->isbn }}</p>
-            <p><strong>Purchase Price:</strong> {{ $book->purchase_price }}</p>
-            <p><strong>Selling Price:</strong> {{ $book->selling_price }}</p>
+            <p><strong>Subject:</strong> {{ $book->category }}</p>
             <p><strong>Copyright:</strong> {{ $book->copyright }}</p>
             <p><strong>Year:</strong> {{ $book->year }}</p>
             <p><strong>Country:</strong> {{ $book->country }}</p>
         </div>
 
-        <div class="span4">
-            <p><strong>Subject:</strong> {{ $book->category }}</p>
+        <div class="span4">           
             <p><strong>Publisher:</strong> {{ $book->publisher }}</p>
             <p><strong>Language:</strong> {{ $book->language }}</p>
             <p><strong>Total number of available copy:</strong> {{ $book->amount }}</p>
