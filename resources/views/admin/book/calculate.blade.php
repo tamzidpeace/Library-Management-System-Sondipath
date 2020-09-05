@@ -122,8 +122,7 @@
 
             <div class="span5" onTablet="span5" onDesktop="span5">
                 <div class="form-group">
-                    <label for="name"><strong>Cost Price in BDT</strong>
-                        <span style="color:red;">*</span>
+                    <label for="name"><strong>Cost Price in BDT</strong>                        
                     </label>
 
                     <input type="number" step="any" name="cprice" id="cprice" placeholder="Cost Price" @if ($con)
@@ -158,8 +157,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="name"><strong>Sales Price in BDT</strong>
-                        <span style="color:red;">*</span>
+                    <label for="name"><strong>Sales Price in BDT</strong>                        
                     </label>
 
                     <input type="number" step="any" name="sprice" id="sprice" placeholder="Sales Price" @if ($con)

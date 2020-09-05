@@ -29,7 +29,15 @@ class ConsignmentController extends Controller
 
     public function calculate(Request $request)
     {
-        //return $request;
+        $validatedData = $request->validate([
+            'copy' => 'required',
+            'pprice' => 'required',
+            'currency' => 'required',
+            'con_rate' => 'required',
+            'sfr' => 'required',
+            'sfr2' => 'required',
+        ]);
+        
         $consignment = Consignment::where('isbn', $request->isbn)->first();
 
         if ($consignment) {
