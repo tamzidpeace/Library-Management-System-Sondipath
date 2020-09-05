@@ -45,7 +45,7 @@
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" name="copy" id="copy" placeholder="Enter Number of Copy" @if ($con)
+                    <input type="number" step="any" name="copy" id="copy" placeholder="Enter Number of Copy" @if ($con)
                     value="{{ $con->copy }}"
                 @else
                     value=""
@@ -53,11 +53,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="name"> <strong>Pbulisher Price</strong>
+                    <label for="name"> <strong>Publisher Price</strong>
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" name="pprice" id="pprice" placeholder="Enter Publisher Price" @if ($con)
+                    <input type="number" step="any" name="pprice" id="pprice" placeholder="Enter Publisher Price" @if ($con)
                     value="{{ $con->publisher_price }}"
                 @else
                     value=""
@@ -70,12 +70,28 @@
                     </label>
 
                     <select name="currency" class="form-control">
+                        
+                        @if ($con)
+
+                        <option value="{{ $con->currency }}">{{ $con->currency }}</option>
+                        @for ($i = 0; $i <count($currency) ; $i++)
+                        @if ($con->currency == $currency[$i])
+                        continue;
+                        @else
+                        <option value="{{ $currency[$i] }}">{{ $currency[$i] }}</option>
+                        @endif
+                        
+                        @endfor
+
+                        @else
 
                         <option value="">Select</option>
                         @for ($i = 0; $i <count($currency) ; $i++)
                         <option value="{{ $currency[$i] }}">{{ $currency[$i] }}</option>
                         @endfor
 
+                        @endif
+                        
                     </select>
                 </div>
 
@@ -84,7 +100,7 @@
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" name="con_rate" id="con_rate" placeholder="Enter Conversion Rate" @if ($con)
+                    <input type="number" step="any" name="con_rate" id="con_rate" placeholder="Enter Conversion Rate" @if ($con)
                     value="{{ $con->con_rate }}"
                 @else
                     value=""
@@ -96,7 +112,7 @@
 
                     </label>
 
-                    <input type="number" name="discount" id="discount" placeholder="Discount Rate" @if ($con)
+                    <input type="number" step="any" name="discount" id="discount" placeholder="Discount Rate" @if ($con)
                     value="{{ $con->discount }}"
                 @else
                     value=""
@@ -114,7 +130,7 @@
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" name="cprice" id="cprice" placeholder="Enter Cost Price" @if ($con)
+                    <input type="number" step="any" name="cprice" id="cprice" placeholder="Enter Cost Price" @if ($con)
                     value="{{ $con->cost_price }}"
                 @else
                     value=""
@@ -126,8 +142,8 @@
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" name="sfr" id="sfr" placeholder="Enter Selling Fixed Rate" @if ($con)
-                    value="{{ $con->sell_rate_0 }}"
+                    <input type="number" step="any" name="sfr" id="sfr" placeholder="Enter Selling Fixed Rate" @if ($con)
+                    value="{{ $con->sell_rate_o }}"
                 @else
                     value=""
                     @endif >
@@ -138,7 +154,7 @@
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" name="sfr2" id="sfr2" placeholder="Selling Flexible Rate" @if ($con)
+                    <input type="number" step="any" name="sfr2" id="sfr2" placeholder="Selling Flexible Rate" @if ($con)
                     value="{{ $con->sell_rate_d }}"
                 @else
                     value=""
@@ -150,7 +166,7 @@
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" name="sprice" id="sprice" placeholder="Enter Sales Price" @if ($con)
+                    <input type="number" step="any" name="sprice" id="sprice" placeholder="Enter Sales Price" @if ($con)
                     value="{{ $con->sell_price }}"
                 @else
                     value=""

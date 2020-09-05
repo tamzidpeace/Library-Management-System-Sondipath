@@ -5,9 +5,10 @@
 
 <h2>Add Consignment Item</h2>
 
-{!! Form::open(['method' => 'post', 'action' => ['ConsignmentController@create'],
+{!! Form::open(['method' => 'GET', 'action' => ['ConsignmentController@create'],
 'files'=> false]) !!}
 
+@csrf
 
 <div class="form-group">
     <label for="name">Name</label>

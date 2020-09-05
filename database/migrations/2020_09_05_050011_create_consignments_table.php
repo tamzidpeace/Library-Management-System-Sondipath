@@ -19,13 +19,13 @@ class CreateConsignmentsTable extends Migration
             $table->integer('isbn')->unique();
             $table->integer('copy');
             $table->string('currency');
-            $table->integer('publisher_price');
-            $table->integer('cost_price');
-            $table->integer('sell_price');
-            $table->integer('con_rate');
-            $table->integer('sell_rate_o');
-            $table->integer('sell_rate_d');
-            $table->integer('discount')->nullable();
+            $table->float('publisher_price');
+            $table->float('cost_price');
+            $table->float('sell_price');
+            $table->float('con_rate');
+            $table->float('sell_rate_o');
+            $table->float('sell_rate_d');
+            $table->float('discount')->nullable();
             $table->timestamps();
         });
     }

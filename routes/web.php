@@ -69,6 +69,6 @@ Route::get('/admin/book/info/{id}', 'AdminBookController@info')->name('admin.boo
 
 //consignment item
 Route::get('/admin/book/consignment', 'ConsignmentController@index')->name('admin.book.consignment');
-Route::post('/admin/book/consignment/create', 'ConsignmentController@create')->name('admin.consignment.create');
+Route::get('/admin/book/consignment/create', 'ConsignmentController@create')->name('admin.consignment.create');
 Route::post('admin/book/consignment/calculate', 'ConsignmentController@calculate')->name('admin.consignment.calculate');
 
