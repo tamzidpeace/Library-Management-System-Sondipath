@@ -131,7 +131,7 @@
                 </div>
 
                 <div style="margin-top: 12px;" class="form-group">
-                    <label for="name"><strong>Category</strong>
+                    <label for="name"><strong>Subject</strong>
                         <span style="color:red;">*</span>
                     </label>
 

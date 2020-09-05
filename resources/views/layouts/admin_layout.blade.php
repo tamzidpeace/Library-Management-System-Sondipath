@@ -412,6 +412,8 @@
                                 <li><a href="/admin/book/index"><i class="icon-book"></i><span class="hidden-tablet">
                                             Manage Book</span></a></li>
 
+                                <li><a href="{{ route('admin.book.consignment') }}"><i class="icon-book"></i><span class="hidden-tablet">
+                                            Consignment</span></a></li>
                             </ul>
                         </li>
 

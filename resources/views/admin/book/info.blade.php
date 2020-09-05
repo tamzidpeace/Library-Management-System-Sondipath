@@ -18,7 +18,7 @@
                         @if ($book->cover)
                             <img src="/image/cover/{{ $book->cover }}"  style="height: 200px; width:170px;">
                         @else
-                            <img src="/image/cover/book2.jpg" class="img-thumbnail" style="height:  200px; width:170px;">
+                            <img src="/image/cover/default.jpg" class="img-thumbnail" style="height:  200px; width:170px;">
                         @endif
                     </div>
 
@@ -38,7 +38,7 @@
         </div>
 
         <div class="span4">
-            <p><strong>Category:</strong> {{ $book->category }}</p>
+            <p><strong>Subject:</strong> {{ $book->category }}</p>
             <p><strong>Publisher:</strong> {{ $book->publisher }}</p>
             <p><strong>Language:</strong> {{ $book->language }}</p>
             <p><strong>Total number of available copy:</strong> {{ $book->amount }}</p>
