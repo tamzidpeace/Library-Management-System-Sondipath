@@ -3,42 +3,174 @@
 
 @section('content')
 
-<div class="row-fluid">
+    <div class="row-fluid">
 
-    <div style="margin-left: 30px; margin-bottom: 40px;">
-        <h2 class="box-title">Title: {{ $book->name }}</h2>
-        <h2 class="box-title">ISBN: {{ $book->isbn }}</h2>
-    </div>
+        <div style="margin-left: 30px; margin-bottom: 40px;">
+            <h2 class="box-title">Title: {{ $book->name }}</h2>
+            <h2 class="box-title">ISBN: {{ $book->isbn }}</h2>
+        </div>
 
-    <div class="span2">
+        <div class="span2">
 
-        <div class="box box-success">
+            <div class="box box-success">
 
-            <div class="box-body">
+                <div class="box-body">
 
-                <div style="margin-left: 0px">
-                    @if ($book->cover)
-                        <img src="/image/cover/{{ $book->cover }}"  style="height: 200px; width:170px;">
-                    @else
-                        <img src="/image/cover/default.jpg" class="img-thumbnail" style="height:  200px; width:170px;">
-                    @endif
+                    <div style="margin-left: 0px">
+                        @if ($book->cover)
+                            <img src="/image/cover/{{ $book->cover }}" style="height: 200px; width:170px;">
+                        @else
+                            <img src="/image/cover/default.jpg" class="img-thumbnail" style="height:  200px; width:170px;">
+                        @endif
+                    </div>
+
+                </div><!-- /.box-body -->
+            </div>
+
+        </div>
+
+        <div>
+
+
+            {!! Form::open(['method' => 'POST', 'action' => ['ConsignmentController@calculate'], 'files' => false]) !!}
+            @csrf
+
+            {!! Form::hidden('book_id', $book->id) !!}
+            {!! Form::hidden('isbn', $book->isbn) !!}
+
+            <div class="span4" onTablet="span4" onDesktop="span4">
+
+                <div class="form-group">
+                    <label for="name"><strong>Copy</strong>
+                        <span style="color:red;">*</span>
+                    </label>
+
+                    <input type="number" name="copy" id="copy" placeholder="Enter Number of Copy" @if ($con)
+                    value="{{ $con->copy }}"
+                @else
+                    value=""
+                    @endif >
                 </div>
 
-            </div><!-- /.box-body -->
+                <div class="form-group">
+                    <label for="name"> <strong>Pbulisher Price</strong>
+                        <span style="color:red;">*</span>
+                    </label>
+
+                    <input type="number" name="pprice" id="pprice" placeholder="Enter Publisher Price" @if ($con)
+                    value="{{ $con->publisher_price }}"
+                @else
+                    value=""
+                    @endif >
+                </div>
+
+                <div class="form-group">
+                    <label for="name"><strong>Corrency</strong>
+                        <span style="color:red;">*</span>
+                    </label>
+
+                    <select name="currency" class="form-control">
+
+                        <option value="">Select</option>
+                        @for ($i = 0; $i <count($currency) ; $i++)
+                        <option value="{{ $currency[$i] }}">{{ $currency[$i] }}</option>
+                        @endfor
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name"><strong>Conversion Rate</strong>
+                        <span style="color:red;">*</span>
+                    </label>
+
+                    <input type="number" name="con_rate" id="con_rate" placeholder="Enter Conversion Rate" @if ($con)
+                    value="{{ $con->con_rate }}"
+                @else
+                    value=""
+                    @endif >
+                </div>
+
+                <div class="form-group">
+                    <label for="name"><strong>Discount(%)</strong>
+
+                    </label>
+
+                    <input type="number" name="discount" id="discount" placeholder="Discount Rate" @if ($con)
+                    value="{{ $con->discount }}"
+                @else
+                    value=""
+                    @endif >
+                </div>
+
+
+            </div>
+
+            {{-- xxx --}}
+
+            <div class="span5" onTablet="span5" onDesktop="span5">
+                <div class="form-group">
+                    <label for="name"><strong>Cost Price in BDT</strong>
+                        <span style="color:red;">*</span>
+                    </label>
+
+                    <input type="number" name="cprice" id="cprice" placeholder="Enter Cost Price" @if ($con)
+                    value="{{ $con->cost_price }}"
+                @else
+                    value=""
+                    @endif >
+                </div>
+
+                <div class="form-group">
+                    <label for="name"><strong>Selling Fixed Rate</strong>
+                        <span style="color:red;">*</span>
+                    </label>
+
+                    <input type="number" name="sfr" id="sfr" placeholder="Enter Selling Fixed Rate" @if ($con)
+                    value="{{ $con->sell_rate_0 }}"
+                @else
+                    value=""
+                    @endif >
+                </div>
+
+                <div class="form-group">
+                    <label for="name"><strong>Selling Flexible Rate</strong>
+                        <span style="color:red;">*</span>
+                    </label>
+
+                    <input type="number" name="sfr2" id="sfr2" placeholder="Selling Flexible Rate" @if ($con)
+                    value="{{ $con->sell_rate_d }}"
+                @else
+                    value=""
+                    @endif >
+                </div>
+
+                <div class="form-group">
+                    <label for="name"><strong>Sales Price in BDT</strong>
+                        <span style="color:red;">*</span>
+                    </label>
+
+                    <input type="number" name="sprice" id="sprice" placeholder="Enter Sales Price" @if ($con)
+                    value="{{ $con->sell_price }}"
+                @else
+                    value=""
+                    @endif >
+                </div>
+
+                <div class="form-group" style="margin-top: 24px">
+                    {!! Form::submit('Calculate/Update', ['class' => 'btn btn-primary']) !!}
+                    <a href="{{ route('dashboard') }}" class="btn btn-info">All Consignments</a>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-    <div class="span4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, odit quia, similique alias quo laboriosam explicabo repudiandae tenetur ducimus neque vitae rem perferendis libero voluptates ab id obcaecati modi praesentium?
-    </div>
 
-    <div class="span4">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo labore velit minima natus placeat assumenda quasi! Minima, tempora ducimus veniam assumenda hic amet praesentium perspiciatis dolores reprehenderit, quasi, repudiandae consequatur!
-    </div>
+    {{-- end testing --}}
 
-
-</div>
-
+    {!! Form::close() !!}
 
 @endsection

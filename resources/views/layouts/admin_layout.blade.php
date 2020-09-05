@@ -19,39 +19,50 @@
     <!-- end: Mobile Specific -->
 
     <!-- start: CSS -->
-    {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
-    <link rel="stylesheet" href="{{asset('css/admin.css')}}">
-    <link id="bootstrap-style" href="{{asset('dashboard/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('dashboard/css/bootstrap-responsive.min.css')}}" rel="stylesheet">
-    <link id="base-style" href="{{asset('dashboard/css/style.css')}}" rel="stylesheet">
-    <link id="base-style-responsive" href="{{asset('dashboard/css/style-responsive.css')}}" rel="stylesheet">
+    {{--
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link id="bootstrap-style" href="{{ asset('dashboard/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('dashboard/css/bootstrap-responsive.min.css') }}" rel="stylesheet">
+    <link id="base-style" href="{{ asset('dashboard/css/style.css') }}" rel="stylesheet">
+    <link id="base-style-responsive" href="{{ asset('dashboard/css/style-responsive.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <link
         href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext'
         rel='stylesheet' type='text/css'>
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> --}}
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> --}}
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> --}}
+    {{--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    --}}
+    {{--
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    --}}
+    {{-- <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script> --}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    {{--  <script src="{{ asset('js/app.js') }}" defer></script>  --}}
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script>
+    --}}
 
     <!-- end: CSS -->
 
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<link id="ie-style" href="css/ie.css" rel="stylesheet">
-	<![endif]-->
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <link id="ie-style" href="css/ie.css" rel="stylesheet">
+ <![endif]-->
 
     <!--[if IE 9]>
-		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
-	<![endif]-->
+  <link id="ie9style" href="css/ie9.css" rel="stylesheet">
+ <![endif]-->
 
     <!-- start: Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico">
@@ -362,7 +373,7 @@
                     <ul class="nav nav-tabs nav-stacked main-menu">
 
                         <li><a href="{{ route('dashboard') }}"><i class="icon-user"></i><span class="hidden-tablet">
-                            Dashboard</span></a></li>
+                                    Dashboard</span></a></li>
 
                         <li><a href="{{ route('admin.users') }}"><i class="icon-user"></i><span class="hidden-tablet">
                                     Users</span></a></li>
@@ -372,10 +383,12 @@
                             <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
                                     class="hidden-tablet">Category</span></a>
                             <ul>
-                                <li><a class="submenu" href="{{ route('admin.category.add') }}"><i class="icon-file-alt"></i><span
-                                    class="hidden-tablet">Add Category</span></a></li>
+                                <li><a class="submenu" href="{{ route('admin.category.add') }}"><i
+                                            class="icon-file-alt"></i><span class="hidden-tablet">Add
+                                            Category</span></a></li>
 
-                                <li><a href="{{ route('admin.category.index') }}"><i class="icon-book"></i><span class="hidden-tablet">
+                                <li><a href="{{ route('admin.category.index') }}"><i class="icon-book"></i><span
+                                            class="hidden-tablet">
                                             Manage Category</span></a></li>
                             </ul>
                         </li>
@@ -406,18 +419,43 @@
                                     class="hidden-tablet">Book</span></a>
 
                             <ul>
-                                <li><a href="{{ route('admin.book.create') }}"><i class="icon-book"></i><span class="hidden-tablet">
-                                    Add New Book</span></a></li>
+                                <li><a href="{{ route('admin.book.create') }}"><i class="icon-book"></i><span
+                                            class="hidden-tablet">
+                                            Add New Book</span></a></li>
 
                                 <li><a href="/admin/book/index"><i class="icon-book"></i><span class="hidden-tablet">
                                             Manage Book</span></a></li>
 
-                                <li><a href="{{ route('admin.book.consignment') }}"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Consignment</span></a></li>
                             </ul>
                         </li>
 
                         {{-- end of Books --}}
+
+                        {{-- consignment --}}
+
+                        <li>
+
+                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
+                                    class="hidden-tablet">Consignment</span></a>
+
+                            <ul>
+
+                                <li><a href="{{ route('admin.book.consignment') }}"><i class="icon-book"></i><span
+                                    class="hidden-tablet">
+                                    Add/Update</span></a></li>
+
+                                {{-- <li><a href="{{ route('admin.book.create') }}"><i class="icon-book"></i><span
+                                            class="hidden-tablet">
+                                            Add New Book</span></a></li>
+
+                                <li><a href="/admin/book/index"><i class="icon-book"></i><span class="hidden-tablet">
+                                            Manage Book</span></a></li> --}}
+
+
+                            </ul>
+                        </li>
+
+                        {{-- end of consignment --}}
 
 
 
@@ -497,60 +535,60 @@
 
 
 
-    <script src="{{asset('dashboard/js/jquery-1.9.1.min.js')}}"></script>
-    <script src="{{asset('dashboard/js/jquery-migrate-1.0.0.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery-1.9.1.min.js') }}"></script>
+    <script src="{{ asset('dashboard/js/jquery-migrate-1.0.0.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery-ui-1.10.0.custom.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery-ui-1.10.0.custom.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.ui.touch-punch.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.ui.touch-punch.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/modernizr.js')}}"></script>
+    <script src="{{ asset('dashboard/js/modernizr.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/bootstrap.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.cookie.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.cookie.js') }}"></script>
 
-    <script src='{{asset('dashboard/js/fullcalendar.min.js')}}'></script>
+    <script src='{{ asset('dashboard/js/fullcalendar.min.js') }}'></script>
 
-    <script src='{{asset('dashboard/js/jquery.dataTables.min.js')}}'></script>
+    <script src='{{ asset('dashboard/js/jquery.dataTables.min.js') }}'></script>
 
-    <script src="{{asset('dashboard/js/excanvas.js')}}"></script>
-    <script src="{{asset('dashboard/js/jquery.flot.js')}}"></script>
-    <script src="{{asset('dashboard/js/jquery.flot.pie.js')}}"></script>
-    <script src="{{asset('dashboard/js/jquery.flot.stack.js')}}"></script>
-    <script src="{{asset('dashboard/js/jquery.flot.resize.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/excanvas.js') }}"></script>
+    <script src="{{ asset('dashboard/js/jquery.flot.js') }}"></script>
+    <script src="{{ asset('dashboard/js/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('dashboard/js/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('dashboard/js/jquery.flot.resize.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.chosen.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.chosen.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.uniform.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.uniform.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.cleditor.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.cleditor.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.noty.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.noty.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.elfinder.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.elfinder.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.raty.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.raty.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.iphone.toggle.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.iphone.toggle.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.uploadify-3.1.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.uploadify-3.1.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.gritter.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.gritter.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.imagesloaded.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.imagesloaded.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.masonry.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.masonry.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.knob.modified.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.knob.modified.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/jquery.sparkline.min.js')}}"></script>
+    <script src="{{ asset('dashboard/js/jquery.sparkline.min.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/counter.js')}}"></script>
+    <script src="{{ asset('dashboard/js/counter.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/retina.js')}}"></script>
+    <script src="{{ asset('dashboard/js/retina.js') }}"></script>
 
-    <script src="{{asset('dashboard/js/custom.js')}}"></script>
+    <script src="{{ asset('dashboard/js/custom.js') }}"></script>
     <!-- end: JavaScript-->
 
 </body>

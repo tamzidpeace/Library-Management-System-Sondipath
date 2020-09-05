@@ -5,7 +5,7 @@
 
 <h2>Add Consignment Item</h2>
 
-{!! Form::open(['method' => 'POST', 'action' => ['ConsignmentController@create'],
+{!! Form::open(['method' => 'post', 'action' => ['ConsignmentController@create'],
 'files'=> false]) !!}
 
 
