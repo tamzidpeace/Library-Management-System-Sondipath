@@ -33,6 +33,8 @@ class ConsignmentController extends Controller
         $consignment = Consignment::where('isbn', $request->isbn)->first();
 
         if ($consignment) {
+            $book = Book::where('isbn', $request->isbn)->first();
+            $book->amount = $book->amount + $request->copy;
             $consignment->copy = $request->copy;
             $consignment->book_id = $request->book_id;
             $consignment->isbn = $request->isbn;
@@ -54,9 +56,12 @@ class ConsignmentController extends Controller
             $consignment->sell_price = floor($publisher_price * $request->sfr2 - $discount);
 
             $consignment->save();
+            $book->save();
         } else {
             $consignment = new Consignment;
 
+            $book = Book::where('isbn', $request->isbn)->first();
+            $book->amount = $book->amount + $request->copy;
             $consignment->copy = $request->copy;
             $consignment->book_id = $request->book_id;
             $consignment->isbn = $request->isbn;
@@ -73,6 +78,7 @@ class ConsignmentController extends Controller
 
             $consignment->sell_price = floor($publisher_price * $request->sfr2);
             $consignment->save();
+            $book->save();
         }
 
         return back()->with('success', 'Consignment saved/updated!');

@@ -45,11 +45,7 @@
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" step="any" name="copy" id="copy" placeholder="Enter Number of Copy" @if ($con)
-                    value="{{ $con->copy }}"
-                @else
-                    value=""
-                    @endif >
+                    <input type="number" step="any" name="copy" id="copy" placeholder="Enter Number of Copy" value="0">
                 </div>
 
                 <div class="form-group">
@@ -130,7 +126,7 @@
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" step="any" name="cprice" id="cprice" placeholder="Enter Cost Price" @if ($con)
+                    <input type="number" step="any" name="cprice" id="cprice" placeholder="Cost Price" @if ($con)
                     value="{{ $con->cost_price }}"
                 @else
                     value=""
@@ -166,7 +162,7 @@
                         <span style="color:red;">*</span>
                     </label>
 
-                    <input type="number" step="any" name="sprice" id="sprice" placeholder="Enter Sales Price" @if ($con)
+                    <input type="number" step="any" name="sprice" id="sprice" placeholder="Sales Price" @if ($con)
                     value="{{ $con->sell_price }}"
                 @else
                     value=""
