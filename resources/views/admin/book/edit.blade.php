@@ -30,23 +30,6 @@
 </div>
 
 <div class="form-group">
-    <label for="name"> <strong>Purchase Price</strong>
-        <span style="color:red;">*</span>
-    </label>
-
-    <input type="number" name="pprice" id="pprice" placeholder="Enter Purchase Price" value="{{ $book->purchase_price }}" >
-</div>
-
-
-<div class="form-group">
-    <label for="name"><strong>Selling Price</strong>
-        <span style="color:red;">*</span>
-    </label>
-
-    <input type="number" name="sprice" id="sprice" placeholder="Enter Selling Price" value="{{ $book->selling_price }}" >
-</div>
-
-<div class="form-group">
     <label for="name"><strong>Year</strong>
         <span style="color:red;">*</span>
     </label>
@@ -119,7 +102,7 @@
 </div>
 
 <div class="form-group">
-    <label for="name"><strong>Category</strong>
+    <label for="name"><strong>Subject</strong>
         <span style="color:red;">*</span>
     </label>
 

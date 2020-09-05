@@ -10,6 +10,9 @@ class AdminBookController extends Controller
     public function index()
     {
         $books = Book::paginate(10);
+        if(count($books)==0) 
+            return redirect(route('admin.book.create'))
+            ->with('info', 'No book info found, Let\'s Entry your first book.');
         return view('admin.book.index', compact('books'));
     }
 
@@ -23,9 +26,7 @@ class AdminBookController extends Controller
 
         $validatedData = $request->validate([
             'name' => ['required',],
-            'isbn'  => ['required'],
-            'pprice'  => ['required'],
-            'sprice'  => ['required'],
+            'isbn'  => ['required'],            
             'year'  => ['required'],
             'country'  => ['required'],
             'publisher'  => ['required'],
@@ -39,9 +40,7 @@ class AdminBookController extends Controller
 
         $book->name = $request->name;
         $book->authors = $request->author;
-        $book->isbn = $request->isbn;
-        $book->purchase_price = $request->pprice;
-        $book->selling_price = $request->sprice;
+        $book->isbn = $request->isbn;        
         $book->copyright = $request->copyright;
         $book->year = $request->year;
         $book->country = $request->country;
@@ -74,9 +73,7 @@ class AdminBookController extends Controller
     {
         $validatedData = $request->validate([
             'name' => ['required',],
-            'isbn'  => ['required'],
-            'pprice'  => ['required'],
-            'sprice'  => ['required'],
+            'isbn'  => ['required'],            
             'year'  => ['required'],
             'country'  => ['required'],
             'publisher'  => ['required'],
@@ -90,9 +87,7 @@ class AdminBookController extends Controller
 
         $book->name = $request->name;
         $book->authors = $request->author;
-        $book->isbn = $request->isbn;
-        $book->purchase_price = $request->pprice;
-        $book->selling_price = $request->sprice;
+        $book->isbn = $request->isbn;        
         $book->copyright = $request->copyright;
         $book->year = $request->year;
         $book->country = $request->country;
