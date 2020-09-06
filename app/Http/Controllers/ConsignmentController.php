@@ -40,6 +40,7 @@ class ConsignmentController extends Controller
         ]);
         
         $consignment = Consignment::where('isbn', $request->isbn)->first();
+        $consignments = Consignment::all();
 
         if ($consignment) {
             $book = Book::where('isbn', $request->isbn)->first();
