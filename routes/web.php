@@ -76,5 +76,7 @@ Route::get('/admin/consignment/all', 'ConsignmentController@index2')->name('admi
 Route::get('/admin/consignment/single/{id}', 'ConsignmentController@singleCon')->name('admin.consignment.single');
 
 //sales
-
+Route::get('/admin/sale/info', 'AdminSaleController@info')->name('admin.sale.info');
+Route::get('/admin/sale/info-set', 'AdminSaleController@infoSet')->name('admin.sale.info_set');
+Route::post('/admin/sale/calculate', 'AdminSaleController@calculate')->name('admin.sale.calculate');
 

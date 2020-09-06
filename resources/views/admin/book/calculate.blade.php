@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="name"><strong>Corrency</strong>
+                    <label for="name"><strong>Currency</strong>
                         <span style="color:red;">*</span>
                     </label>
 

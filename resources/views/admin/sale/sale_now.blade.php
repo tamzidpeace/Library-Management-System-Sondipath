@@ -1,18 +1,16 @@
 @extends('layouts.admin_layout')
 
-
 @section('content')
+<h2>Sale Now</h2>
 
-<h2>Add Consignment Item</h2>
-
-{!! Form::open(['method' => 'GET', 'action' => ['ConsignmentController@create'],
+{!! Form::open(['method' => 'GET', 'action' => ['AdminSaleController@infoSet'],
 'files'=> false]) !!}
 
 @csrf
 
 <div class="form-group">
     <label for="name">ISBN</label>
-    <input type="number" name="isbn" id="isbn" placeholder="Enter ISBN" value="" >
+    <input type="number" name="isbn" id="isbn" placeholder="Enter ISBN" value="">
 </div>
 
 <div class="form-group">
@@ -20,5 +18,11 @@
 </div>
 
 {!! Form::close() !!}
+
+
+{{-- sale form --}}
+
+
+{{-- end sale form --}}
 
 @endsection

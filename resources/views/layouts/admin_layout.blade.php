@@ -454,6 +454,28 @@
 
                         {{-- end of consignment --}}
 
+                        {{--Sales  --}}
+
+                        <li>
+
+                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
+                                    class="hidden-tablet">Sale</span></a>
+
+                            <ul>
+
+                                <li><a href="{{ route('admin.sale.info') }}"><i class="icon-book"></i><span
+                                    class="hidden-tablet">
+                                    Sale Now</span></a></li>
+
+                                 <li><a href="{{ route('admin.consignment.all_con') }}"><i class="icon-book"></i><span
+                                            class="hidden-tablet">
+                                            All Sale</span></a></li>                                
+
+                            </ul>
+                        </li>
+
+                        {{--end of Sales  --}}
+
 
 
                         {{-- <li>
