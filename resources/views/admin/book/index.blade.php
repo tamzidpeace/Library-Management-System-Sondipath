@@ -13,7 +13,7 @@
     @csrf
 
     <div class="form-group">
-        <input type="text" name="isbn" id="isbn" placeholder="Enter ISBN or Book Name" value="">
+        <input type="text" name="isbn" id="isbn" placeholder="Enter ISBN or Book NamePHP" value="">
     </div>
 
     <div class="form-group" style="margin-left: 82%; margin-top: -4%;">

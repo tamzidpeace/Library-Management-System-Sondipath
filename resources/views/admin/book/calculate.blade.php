@@ -169,7 +169,7 @@
 
                 <div class="form-group" style="margin-top: 24px">
                     {!! Form::submit('Calculate/Update', ['class' => 'btn btn-primary']) !!}
-                    <a href="{{ route('dashboard') }}" class="btn btn-info">All Consignments</a>
+                    <a href="{{ route('admin.consignment.all_con') }}" class="btn btn-info">All Consignments</a>
                 </div>
 
             </div>

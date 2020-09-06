@@ -72,4 +72,9 @@ Route::get('/admin/book/search', 'AdminBookController@search')->name('admin.book
 Route::get('/admin/book/consignment', 'ConsignmentController@index')->name('admin.book.consignment');
 Route::get('/admin/book/consignment/create', 'ConsignmentController@create')->name('admin.consignment.create');
 Route::post('admin/book/consignment/calculate', 'ConsignmentController@calculate')->name('admin.consignment.calculate');
+Route::get('/admin/consignment/all', 'ConsignmentController@index2')->name('admin.consignment.all_con');
+Route::get('/admin/consignment/single/{id}', 'ConsignmentController@singleCon')->name('admin.consignment.single');
+
+//sales
+
 

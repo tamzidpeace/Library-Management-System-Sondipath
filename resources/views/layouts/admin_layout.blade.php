@@ -84,7 +84,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="/home"><span>Library Management System</span></a>
+                <a class="brand" href="/"><span>সন্ধিপাঠ লাইব্রেরি ব্যবস্থাপনা</span></a>
 
                 <!-- start: Header Menu -->
                 <div class="nav-no-collapse header-nav">
@@ -444,12 +444,9 @@
                                     class="hidden-tablet">
                                     Add/Update</span></a></li>
 
-                                {{-- <li><a href="{{ route('admin.book.create') }}"><i class="icon-book"></i><span
+                                 <li><a href="{{ route('admin.consignment.all_con') }}"><i class="icon-book"></i><span
                                             class="hidden-tablet">
-                                            Add New Book</span></a></li>
-
-                                <li><a href="/admin/book/index"><i class="icon-book"></i><span class="hidden-tablet">
-                                            Manage Book</span></a></li> --}}
+                                            All Consignment</span></a></li>                                
 
 
                             </ul>
@@ -459,7 +456,7 @@
 
 
 
-                        <li>
+                        {{-- <li>
                             <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
                                     class="hidden-tablet">Dropdown</span><span class="label label-important">
                                 </span></a>
@@ -471,7 +468,7 @@
                                 <li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span
                                             class="hidden-tablet"> Sub Menu 3</span></a></li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </div>
@@ -522,10 +519,10 @@
     <footer>
 
         <p>
-            <span style="text-align:left;float:left">&copy; 2013 <a href="http://bootstrapmaster.com/"
-                    alt="Bootstrap Themes">creativeLabs</a></span>
-            <span class="hidden-phone" style="text-align:right;float:right">Powered by: <a
-                    href="http://admintemplates.co/" alt="Bootstrap Admin Templates">Metro</a></span>
+            <span style="text-align:left;float:left">Powered By: <a href="https://www.ideatechsolution.com/"
+                    alt="Bootstrap Themes">Idea Tech Solution</a></span>
+            <span class="hidden-phone" style="text-align:right;float:right">Developed By: <a
+                    href="https://github.com/tamzidpeace" alt="Bootstrap Admin Templates">@tamzidpeace</a></span>
         </p>
 
     </footer>

@@ -16,6 +16,7 @@ class ConsignmentController extends Controller
     public function create(Request $request)
     {
         $book = Book::where('isbn', $request->isbn)->first();
+        $consignments = Consignment::all();
 
         if ($book) {
             $isbn = $book->isbn;
@@ -89,6 +90,19 @@ class ConsignmentController extends Controller
             $book->save();
         }
 
-        return back()->with('success', 'Consignment saved/updated!');
+        return back()->with('success', 'Consignment saved/updated!')->with('consignment', $consignments);
+    }
+
+    function index2() {
+        $consignments = Consignment::paginate(20);
+        return view('admin.book.all_con', compact('consignments'));
+    }
+
+    function singleCon($id) {
+        $con = Consignment::findOrFail($id);
+        $consignments = Consignment::all();
+        $book = Book::where('isbn', $con->isbn)->first();
+        $currency = ['BDT', 'INR', 'USD'];
+        return view('admin.book.calculate', compact('con', 'consignments', 'book', 'currency'));
     }
 }
