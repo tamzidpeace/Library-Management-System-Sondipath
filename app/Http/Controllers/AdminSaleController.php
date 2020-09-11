@@ -28,22 +28,24 @@ class AdminSaleController extends Controller
         $book = Book::where('isbn', $request->isbn)->first();
         $con = Consignment::where('isbn', $request->isbn)->first();
 
-        if(isset($book) && isset($con))
+        if (isset($book) && isset($con)) {
             return view('admin.sale.calculate', compact('book', 'con', 'copy'));
-        else
+        } else {
             return back()->with('info', 'Invalid ISBN Nubmer or Consignment isn\'t set for this ISBN!');
+        }
     }
 
     public function calculate(Request $request)
     {
         $validatedData = $request->validate([
             'copy' => 'required',
-        ]);        
+        ]);
 
         $book = Book::where('isbn', $request->isbn)->first();
         
-        if ($request->copy > $book->amount) 
+        if ($request->copy > $book->amount) {
             return back()->with('info', "You can't sale more item than avaiable copy");
+        }
                         
         $sale = new Sale;
         //save data
@@ -66,11 +68,11 @@ class AdminSaleController extends Controller
         } else {
             $sale->total_price = $total;
             $sale->discount = 0;
-        }                
-        return $sale;
-
-        return back()->with('sid', $sid)
-        ->with('info', "Calculated, You can calculate again for previous amout of book copy!")
+        }
+        $book->amount = $book->amount - $request->copy;        
+        
+        return view('admin.sale.sale')
+        ->with('info', "Calculated with . $request->discount .% discount, if you want to change the sell copy number or discount rate, then go back!")
         ->with('sale', $sale)->with('book', $book);
         //end save data
     }

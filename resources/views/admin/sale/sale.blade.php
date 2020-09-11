@@ -1,6 +1,7 @@
 @extends('layouts.admin_layout')
 
 @section('content')
+<h1>Calculation Result</h1>   
 
 <div>
 
@@ -9,7 +10,7 @@
     @csrf
 
     {!! Form::hidden('book_id', $book->id) !!}
-    {!! Form::hidden('isbn', $book->isbn) !!}
+    {!! Form::hidden('isbn', $book->isbn) !!}   
 
     <div class="span4" onTablet="span4" onDesktop="span4">
 
@@ -35,13 +36,13 @@
             <label for="name"><strong>Publisher Price</strong>
             </label>
             <input text="number" step="any" name="pprice" id="pprice" placeholder=""
-                value="{{ $con->publisher_price }}">
+                value="{{ $sale->publisher_price }}">
         </div>
 
         <div class="form-group">
             <label for="name"><strong>Currency</strong>
             </label>
-            <input text="text" name="currency" id="currency" placeholder="" value="{{ $con->currency }}">
+            <input text="text" name="currency" id="currency" placeholder="" value="{{ $sale->currency }}">
         </div>
 
         <div class="form-group">
@@ -49,7 +50,7 @@
 
             </label>
 
-            <input type="number" step="any" name="rate" id="rate" placeholder="" value="{{ $con->sell_rate_d }}">
+            <input type="number" step="any" name="rate" id="rate" placeholder="" value="{{ $sale->rate }}">
         </div>
 
 
@@ -74,7 +75,7 @@
                 <span style="color:red;">*</span>
             </label>
 
-            <input type="number" name="copy" id="copy" placeholder="Enter Number of Sell Copy" value="{{ $copy }}">
+            <input type="number" name="copy" id="copy" placeholder="Enter Number of Sell Copy" value="{{ $sale->copy }}">
         </div>
 
         <div class="form-group">
@@ -82,23 +83,17 @@
 
             </label>
 
-            <input type="number" step="any" name="uprice" id="uprice" placeholder="" value="{{ $con->sell_price }}">
+            <input type="number" step="any" name="uprice" id="uprice" placeholder="" value="{{ $sale->unit_price }}">
         </div>
 
         <div class="form-group">
             <label for="name"><strong>Total Price</strong>
             </label>
 
-            <input type="number" step="any" name="tprice" id="tprice" placeholder="Total Price" value="Will Calculate">
+            <input type="number" step="any" name="tprice" id="tprice" placeholder="Total Price" value="{{ $sale->total_price }}">
         </div>
 
-        <div class="form-group">
-            <label for="name"><strong>Discount</strong>
-            </label>
-
-            <input type="checkbox" class="form-check-input" id="dcheck" name="dcheck">
-            <input type="number" step="any" name="discount" id="discount" value="{{ $con->discount }}">
-        </div>
+        <input type="hidden" name="discount" value="{{ $sale->discount }}">
 
         <div class="form-group" style="margin-top: 24px">
             {!! Form::submit('Calculate/Update', ['class' => 'btn btn-primary']) !!}
