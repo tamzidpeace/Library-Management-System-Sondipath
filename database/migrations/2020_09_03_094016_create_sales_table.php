@@ -25,7 +25,8 @@ class CreateSalesTable extends Migration
             $table->float('publisher_price');
             $table->float('unit_price');
             $table->float('total_price');
-            $table->float('discount')->default(0);            
+            $table->float('discount')->default(0); 
+            $table->string('date');           
             $table->timestamps();
         });
     }

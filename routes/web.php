@@ -81,4 +81,9 @@ Route::get('/admin/sale/info-set', 'AdminSaleController@infoSet')->name('admin.s
 Route::post('/admin/sale/calculate', 'AdminSaleController@calculate')->name('admin.sale.calculate');
 Route::post('/admin/sale/save', 'AdminSaleController@save')->name('admin.sale.save');
 Route::get('/admin/sale/index', 'AdminSaleController@index')->name('admin.sale.index');
+Route::get('/admin/sale/report', 'AdminSaleController@report')->name('admin.sale.report');
+Route::get('/admin/sale/report/isbn', 'AdminSaleController@reportByISBN')->name('admin.sale.report.isbn');
+Route::get('/admin/sale/report/date', 'AdminSaleController@reportByDate')->name('admin.sale.report.date');
+
+
 

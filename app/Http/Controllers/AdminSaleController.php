@@ -96,9 +96,42 @@ class AdminSaleController extends Controller
         $book = Book::where('isbn', $request->isbn)->first();
         $book->amount = $book->amount - $request->cpy;
 
+        $today = date('Y-m-d');
+        $sale->date = $today;
+
         $sale->save();
         $book->save();
 
         return redirect(route('admin.sale.index'))->with('success', 'Sale Complete!');
+    }
+
+    function report() {
+        $today = date('Y-m-d');
+        $today_total_sale = Sale::where('date', $today)->get();
+        $total = 0;
+        foreach ($today_total_sale as $data) {
+            $total = $total + $data->total_price;
+        }
+        return view('admin.sale.report', compact('total', 'today'));
+    }
+
+    function reportByISBN(Request $request) {
+       $isbn_total = Sale::where('isbn' , $request->isbn)->pluck('total_price');
+       $total = 0;
+        foreach ($isbn_total as $data) {
+            $total = $total + $data;
+        }
+        $isbn = $request->isbn;
+        return view('admin.sale.report', compact('total', 'isbn'));
+    }
+
+    function reportByDate(Request $request) {        
+        $date_total = Sale::where('date' , $request->date)->pluck('total_price');
+        $total = 0;
+        foreach ($date_total as $data) {
+            $total = $total + $data;
+        }
+        $date = $request->date;
+        return view('admin.sale.report', compact('total', 'date'));
     }
 }

@@ -441,12 +441,12 @@
                             <ul>
 
                                 <li><a href="{{ route('admin.book.consignment') }}"><i class="icon-book"></i><span
-                                    class="hidden-tablet">
-                                    Add/Update</span></a></li>
-
-                                 <li><a href="{{ route('admin.consignment.all_con') }}"><i class="icon-book"></i><span
                                             class="hidden-tablet">
-                                            All Consignment</span></a></li>                                
+                                            Add/Update</span></a></li>
+
+                                <li><a href="{{ route('admin.consignment.all_con') }}"><i class="icon-book"></i><span
+                                            class="hidden-tablet">
+                                            All Consignment</span></a></li>
 
 
                             </ul>
@@ -464,12 +464,15 @@
                             <ul>
 
                                 <li><a href="{{ route('admin.sale.info') }}"><i class="icon-book"></i><span
-                                    class="hidden-tablet">
-                                    Sale Now</span></a></li>
-
-                                 <li><a href="{{ route('admin.consignment.all_con') }}"><i class="icon-book"></i><span
                                             class="hidden-tablet">
-                                            All Sale</span></a></li>                                
+                                            Sale Now</span></a></li>
+
+                                <li><a href="{{ route('admin.sale.index') }}"><i class="icon-book"></i><span
+                                            class="hidden-tablet">
+                                            All Sale</span></a></li>
+                                <li><a href="{{ route('admin.sale.report') }}"><i class="icon-book"></i><span
+                                            class="hidden-tablet">
+                                            Report</span></a></li>
 
                             </ul>
                         </li>
