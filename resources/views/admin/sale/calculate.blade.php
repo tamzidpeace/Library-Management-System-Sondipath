@@ -10,6 +10,7 @@
 
     {!! Form::hidden('book_id', $book->id) !!}
     {!! Form::hidden('isbn', $book->isbn) !!}
+    
 
     <div class="span4" onTablet="span4" onDesktop="span4">
 
@@ -101,7 +102,7 @@
         </div>
 
         <div class="form-group" style="margin-top: 24px">
-            {!! Form::submit('Calculate/Update', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Calculate', ['class' => 'btn btn-primary']) !!}
         </div>
 
     </div>

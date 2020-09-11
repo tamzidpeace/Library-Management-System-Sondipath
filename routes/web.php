@@ -79,5 +79,6 @@ Route::get('/admin/consignment/single/{id}', 'ConsignmentController@singleCon')-
 Route::get('/admin/sale/info', 'AdminSaleController@info')->name('admin.sale.info');
 Route::get('/admin/sale/info-set', 'AdminSaleController@infoSet')->name('admin.sale.info_set');
 Route::post('/admin/sale/calculate', 'AdminSaleController@calculate')->name('admin.sale.calculate');
-// Route::post('/admin/sale/calculate2', 'AdminSaleController@calculate')->name('admin.sale.calculate2');
+Route::post('/admin/sale/save', 'AdminSaleController@save')->name('admin.sale.save');
+Route::get('/admin/sale/index', 'AdminSaleController@index')->name('admin.sale.index');
 

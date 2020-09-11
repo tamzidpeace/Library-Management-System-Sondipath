@@ -6,11 +6,14 @@
 <div>
 
 
-    {!! Form::open(['method' => 'POST', 'action' => ['AdminSaleController@calculate'], 'files' => false]) !!}
+    {!! Form::open(['method' => 'POST', 'action' => ['AdminSaleController@save'], 'files' => false]) !!}
     @csrf
 
     {!! Form::hidden('book_id', $book->id) !!}
-    {!! Form::hidden('isbn', $book->isbn) !!}   
+    {!! Form::hidden('isbn', $book->isbn) !!}  
+    {!! Form::hidden('cpy', $sale->copy) !!}
+    
+    
 
     <div class="span4" onTablet="span4" onDesktop="span4">
 
@@ -37,13 +40,7 @@
             </label>
             <input text="number" step="any" name="pprice" id="pprice" placeholder=""
                 value="{{ $sale->publisher_price }}">
-        </div>
-
-        <div class="form-group">
-            <label for="name"><strong>Currency</strong>
-            </label>
-            <input text="text" name="currency" id="currency" placeholder="" value="{{ $sale->currency }}">
-        </div>
+        </div>        
 
         <div class="form-group">
             <label for="name"><strong>Rate</strong>
@@ -58,9 +55,15 @@
 
     </div>
 
-    {{-- xxx --}}
+    {{-- xxx --}}    
 
     <div class="span5" onTablet="span5" onDesktop="span5">
+
+        <div class="form-group">
+            <label for="name"><strong>Currency</strong>
+            </label>
+            <input text="text" name="currency" id="currency" placeholder="" value="{{ $sale->currency }}">
+        </div>
 
         <div class="form-group">
             <label for="name"><strong>Balance</strong>
@@ -75,7 +78,7 @@
                 <span style="color:red;">*</span>
             </label>
 
-            <input type="number" name="copy" id="copy" placeholder="Enter Number of Sell Copy" value="{{ $sale->copy }}">
+            <input disabled type="number" name="copy" id="copy" placeholder="Enter Number of Sell Copy" value="{{ $sale->copy }}">
         </div>
 
         <div class="form-group">
@@ -96,7 +99,8 @@
         <input type="hidden" name="discount" value="{{ $sale->discount }}">
 
         <div class="form-group" style="margin-top: 24px">
-            {!! Form::submit('Calculate/Update', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Confirm', ['class' => 'btn btn-success']) !!}
+            <a class="btn btn-warning" href="{{ route('admin.sale.info') }}">Cancel</a>
         </div>
 
     </div>

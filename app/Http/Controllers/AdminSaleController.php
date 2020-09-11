@@ -11,6 +11,8 @@ class AdminSaleController extends Controller
 {
     public function index()
     {
+        $sales = Sale::paginate(20);
+        return view('admin.sale.index', compact('sales'));
     }
 
     public function info()
@@ -75,5 +77,28 @@ class AdminSaleController extends Controller
         ->with('info', "Calculated with . $request->discount .% discount, if you want to change the sell copy number or discount rate, then go back!")
         ->with('sale', $sale)->with('book', $book);
         //end save data
+    }
+
+    public function save(Request $request) {
+        $sale = new Sale;
+        
+        $sale->isbn = $request->isbn;
+        $sale->title = $request->title;
+        $sale->batch = $request->batch;
+        $sale->rate = $request->rate;
+        $sale->currency = $request->currency;
+        $sale->balance = $request->balance;
+        $sale->copy = $request->cpy;
+        $sale->publisher_price = $request->pprice;
+        $sale->unit_price = $request->uprice;
+        $sale->total_price = $request->tprice;
+        $sale->discount = $request->discount;
+        $book = Book::where('isbn', $request->isbn)->first();
+        $book->amount = $book->amount - $request->cpy;
+
+        $sale->save();
+        $book->save();
+
+        return redirect(route('admin.sale.index'))->with('success', 'Sale Complete!');
     }
 }
