@@ -9,56 +9,69 @@ use App\Sale;
 
 class AdminSaleController extends Controller
 {
-    function index() {
-
+    public function index()
+    {
     }
 
-    function info() {
+    public function info()
+    {
         return view('admin.sale.sale_now');
     }
 
-    function infoSet(Request $request) {
+    public function infoSet(Request $request)
+    {
+        $validatedData = $request->validate([
+            'copy' => 'required',
+        ]);
+
+        $copy = $request->copy;
         $book = Book::where('isbn', $request->isbn)->first();
         $con = Consignment::where('isbn', $request->isbn)->first();
 
-        return view('admin.sale.calculate', compact('book', 'con'));
+        if(isset($book) && isset($con))
+            return view('admin.sale.calculate', compact('book', 'con', 'copy'));
+        else
+            return back()->with('info', 'Invalid ISBN Nubmer or Consignment isn\'t set for this ISBN!');
     }
 
-    function calculate(Request $request) {               
-        
+    public function calculate(Request $request)
+    {
         $validatedData = $request->validate([
-            'copy' => 'required',            
-        ]);
+            'copy' => 'required',
+        ]);        
 
-        $check = Sale::where('isbn', $request->isbn)->first();
         $book = Book::where('isbn', $request->isbn)->first();
-
-        if($check)
-            $sale = $check;
-        else
-            $sale = new Sale;
-
+        
+        if ($request->copy > $book->amount) 
+            return back()->with('info', "You can't sale more item than avaiable copy");
+                        
+        $sale = new Sale;
         //save data
         $sale->isbn = $request->isbn;
-        $sale->title = $request->title;
+        $sale->currency = $request->currency;
+        $sale->title = "title";
         $sale->batch = $request->batch;
-        $sale->rate = $request->rate;        
+        $sale->rate = $request->rate;
         $sale->copy = $request->copy;
         $sale->publisher_price = $request->pprice;
         $sale->unit_price = $request->uprice;
-        $sale->discount = $request->discount;
-        $total = $request->uprice * $request->copy;    
+        
+        $total = $request->uprice * $request->copy;
         $sale->balance = $request->balance - $request->copy;
         
-        if($request->dcheck == "on") {            
+        if ($request->dcheck == "on") {
             $dis = ($total * $request->discount) / 100;
             $sale->total_price = $total - $dis;
+            $sale->discount = $request->discount;
         } else {
             $sale->total_price = $total;
-        }
-        
-        
+            $sale->discount = 0;
+        }                
         return $sale;
+
+        return back()->with('sid', $sid)
+        ->with('info', "Calculated, You can calculate again for previous amout of book copy!")
+        ->with('sale', $sale)->with('book', $book);
         //end save data
     }
 }

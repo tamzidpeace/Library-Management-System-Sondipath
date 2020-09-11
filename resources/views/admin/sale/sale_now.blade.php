@@ -8,13 +8,19 @@
 
 @csrf
 
+
 <div class="form-group">
     <label for="name">ISBN</label>
     <input type="number" name="isbn" id="isbn" placeholder="Enter ISBN" value="">
 </div>
 
 <div class="form-group">
-    {!! Form::submit('Search', ['class' => 'btn btn-success']) !!}
+    <label for="copy">Enter the total number of copy you are selling now.</label>
+    <input type="number" name="copy" id="copy" placeholder="Ex: 3" value="">
+</div>
+
+<div class="form-group">
+    {!! Form::submit('Search', ['class' => 'btn btn-success data-save']) !!}
 </div>
 
 {!! Form::close() !!}
@@ -24,5 +30,7 @@
 
 
 {{-- end sale form --}}
+
+
 
 @endsection
