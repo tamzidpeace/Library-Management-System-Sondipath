@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Book;
 use App\Consignment;
 use App\Sale;
+use PDF;
 
 class AdminSaleController extends Controller
 {
@@ -71,7 +72,7 @@ class AdminSaleController extends Controller
             $sale->total_price = $total;
             $sale->discount = 0;
         }
-        $book->amount = $book->amount - $request->copy;        
+        $book->amount = $book->amount - $request->copy;
         
         return view('admin.sale.sale')
         ->with('info', "Calculated with . $request->discount .% discount, if you want to change the sell copy number or discount rate, then go back!")
@@ -79,7 +80,8 @@ class AdminSaleController extends Controller
         //end save data
     }
 
-    public function save(Request $request) {
+    public function save(Request $request)
+    {
         $sale = new Sale;
         
         $sale->isbn = $request->isbn;
@@ -105,46 +107,66 @@ class AdminSaleController extends Controller
         return redirect(route('admin.sale.index'))->with('success', 'Sale Complete!');
     }
 
-    function report() {
+    public function report()
+    {
         $today = date('Y-m-d');
         $today_total_sale = Sale::where('date', $today)->get();
+        $sales = Sale::where('date', $today)->get();
         $total = 0;
         foreach ($today_total_sale as $data) {
             $total = $total + $data->total_price;
         }
-        return view('admin.sale.report', compact('total', 'today'));
+        return view('admin.sale.report', compact('total', 'today', 'sales'));
     }
 
-    function reportByISBN(Request $request) {
-       $isbn_total = Sale::where('isbn' , $request->isbn)->pluck('total_price');
-       $total = 0;
+    public function reportByISBN(Request $request)
+    {
+        $isbn_total = Sale::where('isbn', $request->isbn)->pluck('total_price');
+        $sales = Sale::where('isbn', $request->isbn)->get();
+        $total = 0;
         foreach ($isbn_total as $data) {
             $total = $total + $data;
         }
         $isbn = $request->isbn;
-        return view('admin.sale.report', compact('total', 'isbn'));
+        return view('admin.sale.report', compact('total', 'isbn', 'sales'));
     }
 
-    function reportByDate(Request $request) {        
-        $date_total = Sale::where('date' , $request->date)->pluck('total_price');
+    public function reportByDate(Request $request)
+    {
+        $date_total = Sale::where('date', $request->date)->pluck('total_price');
+        $sales = Sale::where('date', $request->date)->get();
         $total = 0;
         foreach ($date_total as $data) {
             $total = $total + $data;
         }
         $date = $request->date;
-        return view('admin.sale.report', compact('total', 'date'));
+        return view('admin.sale.report', compact('total', 'date', 'sales'));
     }
 
-    function dateBetween(Request $request) {
+    public function dateBetween(Request $request)
+    {
         $date1 = $request->date1;
         $date2 = $request->date2;
         $datas = Sale::whereBetween('date', [$date1, $date2])->get();
+        $sales = Sale::whereBetween('date', [$date1, $date2])->get();
 
         $total = 0;
         foreach ($datas as $data) {
             $total = $total + $data->total_price;
         }
         $date = $request->date;
-        return view('admin.sale.report', compact('total', 'date2', 'date1'));
-    } 
+        return view('admin.sale.report', compact('total', 'date2', 'date1', 'sales'));
+    }
+
+    public function downloadPDF($sales)
+    {
+        
+        return $sales;
+        
+        $pdf = PDF::loadView('admin.sale.pdf', compact('sales'));
+        
+        return $pdf->download('report.pdf');
+
+    
+    }
 }
