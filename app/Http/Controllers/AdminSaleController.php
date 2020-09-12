@@ -116,7 +116,8 @@ class AdminSaleController extends Controller
         foreach ($today_total_sale as $data) {
             $total = $total + $data->total_price;
         }
-        return view('admin.sale.report', compact('total', 'today', 'sales'));
+        $type = 1;
+        return view('admin.sale.report', compact('total', 'today', 'sales', 'type'));
     }
 
     public function reportByISBN(Request $request)
@@ -128,7 +129,8 @@ class AdminSaleController extends Controller
             $total = $total + $data;
         }
         $isbn = $request->isbn;
-        return view('admin.sale.report', compact('total', 'isbn', 'sales'));
+        $type = 2;
+        return view('admin.sale.report', compact('total', 'isbn', 'sales', 'type'));
     }
 
     public function reportByDate(Request $request)
@@ -140,7 +142,8 @@ class AdminSaleController extends Controller
             $total = $total + $data;
         }
         $date = $request->date;
-        return view('admin.sale.report', compact('total', 'date', 'sales'));
+        $type = 3;
+        return view('admin.sale.report', compact('total', 'date', 'sales', 'type'));
     }
 
     public function dateBetween(Request $request)
@@ -155,13 +158,23 @@ class AdminSaleController extends Controller
             $total = $total + $data->total_price;
         }
         $date = $request->date;
-        return view('admin.sale.report', compact('total', 'date2', 'date1', 'sales'));
+        $type = 4;
+        return view('admin.sale.report', compact('total', 'date2', 'date1', 'sales', 'type'));
     }
 
-    public function downloadPDF($sales)
+    public function downloadPDF(Request $request)
     {
-        
-        return $sales;
+        $type = $request->type;
+        if($type == 1) {
+            $today = date('Y-m-d');
+            $sales = Sale::where('date', $today)->get();
+        } elseif($type == 2) {
+            $sales = Sale::where('isbn', $request->isbn)->get();
+        } elseif($type == 3) {
+            $sales = Sale::where('date', $request->date)->get();
+        } else {
+            $sales = Sale::whereBetween('date', [$request->date1, $request->date2])->get();
+        }
         
         $pdf = PDF::loadView('admin.sale.pdf', compact('sales'));
         

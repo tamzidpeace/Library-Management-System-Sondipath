@@ -34,11 +34,23 @@
 <br>
 {{-- sales table --}}
 {{-- {{ $sales }} --}}
-<a class="btn btn-primary" href="download_pdf/{{ $sales }}">Download Report</a>
-{{-- <form action="{{ route('download.pdf') }}" method="get">
-    <input type="hidden" name="sales" value="{{ $sales }}">
+{{-- <a class="btn btn-primary" href="/download_pdf">Download Report</a> --}}
+<form action="{{ route('download.pdf') }}" method="get">
+    @if ($type == 1)
+    <input type="hidden" name="type" value="{{ $type }}">    
+    @elseif($type == 2)
+    <input type="hidden" name="type" value="{{ $type }}">    
+    <input type="hidden" name="isbn" value="{{ $isbn }}">    
+    @elseif($type == 3)
+    <input type="hidden" name="type" value="{{ $type }}">    
+    <input type="hidden" name="date" value="{{ $date }}">    
+    @elseif($type == 4)
+    <input type="hidden" name="type" value="{{ $type }}">    
+    <input type="hidden" name="date1" value="{{ $date1 }}">    
+    <input type="hidden" name="date2" value="{{ $date2 }}">
+    @endif    
     <input type="submit" name="" class="btn btn-primary" value="Download Report">
-</form> --}}
+</form>
 
 <h2>Sale Report</h2>
 <table class="table table-bordered">
@@ -61,6 +73,7 @@
     $count = 1;
     @endphp
 
+   
     @foreach ($sales as $sale)
     <tr>
         <td> {{$count++}} </td>
@@ -78,8 +91,12 @@
     </tr>
     @endforeach
 
+    
 
 </table>
 {{-- end report table --}}
+<script>
+    $('#permissions').val(JSON.stringify(json_object));
+</script>
 @endsection
 
