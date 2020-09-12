@@ -84,6 +84,7 @@ Route::get('/admin/sale/index', 'AdminSaleController@index')->name('admin.sale.i
 Route::get('/admin/sale/report', 'AdminSaleController@report')->name('admin.sale.report');
 Route::get('/admin/sale/report/isbn', 'AdminSaleController@reportByISBN')->name('admin.sale.report.isbn');
 Route::get('/admin/sale/report/date', 'AdminSaleController@reportByDate')->name('admin.sale.report.date');
+Route::get('/admin/sale/report/date-between', 'AdminSaleController@dateBetween')->name('admin.sale.report.date-between');
 
 
 

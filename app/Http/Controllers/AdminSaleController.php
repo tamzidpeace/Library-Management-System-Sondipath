@@ -134,4 +134,17 @@ class AdminSaleController extends Controller
         $date = $request->date;
         return view('admin.sale.report', compact('total', 'date'));
     }
+
+    function dateBetween(Request $request) {
+        $date1 = $request->date1;
+        $date2 = $request->date2;
+        $datas = Sale::whereBetween('date', [$date1, $date2])->get();
+
+        $total = 0;
+        foreach ($datas as $data) {
+            $total = $total + $data->total_price;
+        }
+        $date = $request->date;
+        return view('admin.sale.report', compact('total', 'date2', 'date1'));
+    } 
 }
